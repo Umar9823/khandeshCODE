@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .min-screen {
+            position: relative;
+        }
+
+        .min-screen .screen-box {
+            display: none;
+        }
+
+        .min-screen .screen-box.active {
+            display: block;
+        }
+
+        .min-screen .screen-box .screen {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .min-screen .screen-box .screen video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+            animation: fadein 0.4s linear;
+        }
+
+        @keyframes fadein {
+            0% {
+                transform: scale(1.4);
+            }
+        }
+
+        .min-screen .screen-box .screen .content {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+            flex-flow: column;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .min-screen .screen-box .screen .content h1 {
+            font-size: 3rem;
+            color: #fff;
+            animation: anymat 0.4s linear 0.4s backwards;
+
+        }
+
+        .min-screen .screen-box .screen .content h3 {
+            font-size: 1rem;
+            color: #fff;
+            padding: 1rem;
+            line-height: 1.5rem;
+            animation: anymat 0.4s linear 0.6s backwards;
+        }
+
+        .min-screen .screen-box .screen .content .btn {
+            display: inline-block;
+            padding: 0.5rem 4rem;
+            background: none;
+            border: 0.2rem solid #333;
+            color: rgb(224, 224, 224);
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: 0.2s linear;
+            animation: anymat 0.4s linear 0.2s backwards;
+        }
+
+        @keyframes anymat {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(-50px);
+            }
+        }
+
+        .min-screen #next,
+        .min-screen #back {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: rgb(6 105 255);
+            color: #fff;
+            font-weight: bold;
+            height: 2.2rem;
+            width: 2.2rem;
+            line-height: 1.2rem;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .min-screen #next {
+            right: 0;
+        }
+
+        .min-screen #back {
+            left: 0;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: translateY(-10px);
+            }
+        }
+
+
+        .blink {
+            animation: blink 2s infinite;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="min-screen" data-aos="fade-up">
+        <div class="screen-box active">
+            <div class="screen">
+                <div class="content">
+                    <h1 style="font-size: 4rem;">Creative & Innovative</h1>
+                    <h3>
+                        Creative & Innovative Digital Solution
+                    </h3>
+                    <i class="fa-solid fa-angle-down blink" style="font-size: 2.5rem;color:rgb(6 105 255);"></i>
+                </div>
+                <video src="{% static 'img/video1.mp4' %}" muted autoplay loop></video>
+            </div>
+        </div>
+
+        <div class="screen-box">
+            <div class="screen">
+                <div class="content">
+                    <h1 style="font-size: 4rem;">Creative & Innovative</h1>
+                    <h3>
+                        Creative & Innovative Digital Solution
+                    </h3>
+                    <i class="fa-solid fa-angle-down blink" style="font-size: 2.5rem;color:rgb(6 105 255);"></i>
+                </div>
+                <video src="{% static 'img/video2.mp4' %}" muted autoplay loop></video>
+            </div>
+        </div>
+
+        <!-- <div class="screen-box">
+            <div class="screen">
+                <div class="content">
+                    <h1>Creative & Innovative</h1>
+                    <h3>
+                        Creative & Innovative Digital Solution
+                    </h3>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+                <video src="{% static 'img/video1.mp4' %}" muted autoplay loop></video>
+            </div>
+        </div> -->
+<!-- 
+        <div class="screen-box">
+            <div class="screen">
+                <div class="content">
+                    <h1>Creative & Innovative</h1>
+                    <h3>
+                        Creative & Innovative Digital Solution
+                    </h3>
+                    <a href="#" class="btn">learn more</a>
+                </div>
+                <video src="{% static 'img/video2.mp4' %}" muted autoplay loop></video>
+            </div>
+        </div> -->
+
+
+        <div id="next" onclick="next()"> > </div>
+        <div id="back" onclick="back()">
+            < </div>
+
+        </div>
+
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 2000,
+              })
+        </script>
+
+        <script>
+            let slides = document.querySelectorAll('.screen-box');
+            let index = 0;
+            let autoScrollInterval;
+
+            function next() {
+                slides[index].classList.remove('active');
+                index = (index + 1) % slides.length;
+                slides[index].classList.add('active');
+            }
+
+            function back() {
+                slides[index].classList.remove('active');
+                index = (index - 1 + slides.length) % slides.length;
+                slides[index].classList.add('active');
+            }
+
+            function startAutoScroll() {
+                autoScrollInterval = setInterval(next, 5000); // Adjust the interval as needed (5000 milliseconds = 5 seconds)
+            }
+
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+
+            // Start auto-scroll when the page loads
+            startAutoScroll();
+
+            // Pause auto-scroll on slider hover
+            const sliderContainer = document.querySelector('.slider-container');
+
+            sliderContainer.addEventListener('mouseenter', stopAutoScroll);
+            sliderContainer.addEventListener('mouseleave', startAutoScroll);
+
+        </script>
+</body>
+
+</html>

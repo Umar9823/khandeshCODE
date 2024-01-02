@@ -1,0 +1,105 @@
+{% load static %}
+<style>
+    .top-btn{
+        font-size: 1.5rem;
+    }
+    .top-btn a:hover{
+        transform: translateY(-5%);
+    }
+
+    #common:hover{
+        color: #fff;
+        background-color: #06A3DA;
+    }
+
+    @media (max-width:768px) {
+        .top-line{
+            display: none;
+        }
+    }
+</style>
+<!-- Topbar Start -->
+<div class="top-line">
+    <div style="background-color: rgb(6 105 255); padding: -2px 0;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+
+            <div style="text-align: left;">
+                <div style="display: flex; align-items: center;">
+                    <small style="margin-right: 10px;"><a href="20.956322, 75.509454" style="text-decoration: none; color: #fff;"><i class="fa fa-map-marker-alt" style="margin-right: 5px;"></i></a></small>
+                    <small style="margin-right: 10px;"><i class="fa fa-phone-alt" style="margin-right: 5px;font-size:16px;"></i>+91 (022) 6245 4545</small>
+                    <small><i class="fa fa-envelope-open" style="margin-right: 5px; color: aliceblue;"></i><a href="mailto:contact@cetl.in" style="text-decoration: none; color: aliceblue;font-size:16px;">contact@cetl.in</a></small>
+                </div>
+            </div>
+
+            <div style="text-align: right;">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{% url 'contact' %}"><i class="fab fa-twitter fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{% url 'contact' %}"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{% url 'contact' %}"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="{% url 'contact' %}"><i class="fab fa-instagram fw-normal"></i></a>
+                    <a class="btn btn-sm btn-outline-light btn-sm-square rounded-circle" href="{% url 'contact' %}"><i class="fab fa-youtube fw-normal"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Topbar End -->
+
+
+<!-- Navbar & Carousel Start -->
+
+
+<!----->
+<div class="container-fluid position-relative p-0 "   >
+    <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0"  style="background-color: rgb(255, 255, 255);">
+        <a href="{% url 'index' %}" class="navbar-brand p-0" >
+          <div class="logo"><img src="{% static 'img/KC logo (3).png' %}"></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse"  id="navbarCollapse" >
+            <div class="navbar-nav ms-auto py-0">
+                 <a href="{% url 'index' %}" class="nav-item nav-link active" >Home</a>
+                <div class="nav-item dropdown">
+                    <a href="{% url 'aboutus2' %}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="about">About Us</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'aboutus2' %}" class="dropdown-item" id="common">CETL</a>
+                        <a href="{% url 'vision' %}" class="dropdown-item" id="common">Vision Of Khandesh Central</a>
+                        <a href="{% url 'integrated' %}" class="dropdown-item" id="common">Integrated Development</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="{% url 'service' %}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Features</a>
+                    <div class="dropdown-menu m-0">
+                        <a href="{% url 'statics' %}" class="dropdown-item" id="common" >Statistics </a>
+                        <a href="{% url 'salient' %}" class="dropdown-item" id="common">Salient Features</a>
+                      
+                        <a href="{% url 'target' %}" class="dropdown-item" id="common">Target Audient</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="{% url 'jalgaon' %}" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Location</a>
+                    <div class="dropdown-menu m-0">
+                      <a href="{% url 'jalgaon' %}" class="dropdown-item" id="common">Jalgaon</a>
+                      <a href="{% url 'population' %}" class="dropdown-item" id="common">Population Statistics</a>
+                      <a href="{% url 'demografic' %}" class="dropdown-item" id="common">Demongraphic Data</a>
+                      <a href="{% url 'education' %}" class="dropdown-item" id="common">Education</a>
+                      <a href="{% url 'tourism' %}" class="dropdown-item" id="common">Tourism</a>
+                      <a href="{% url 'industry' %}" class="dropdown-item" id="common">Industry/Commercial</a>
+                      <a href="{% url 'scenario' %}" class="dropdown-item" id="common">Retail Scenario</a>
+                    </div>
+                    
+                      
+                </div>
+                <a href="{% url 'gallery' %}" class="nav-item nav-link ">Gallery</a>
+                <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+            </div>
+            <button type="button" class="btn text-primary ms-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>
+        </div>
+    </nav>
+ 
+   <!--NAVBAR-->
+</div>

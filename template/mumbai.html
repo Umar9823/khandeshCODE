@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" />
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css '%}" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+
+    <style>
+        
+        .min-screen {
+            position: relative;
+        }
+
+        .min-screen .screen-box {
+            display: none;
+        }
+
+        .min-screen .screen-box.active {
+            display: block;
+        }
+
+        .min-screen .screen-box .screen {
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .min-screen .screen-box .screen video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            height: 80vh;
+            width: 100%;
+            object-fit: cover;
+            animation: fadein 0.4s linear;
+        }
+
+        @keyframes fadein {
+            0% {
+                transform: scale(1.4);
+            }
+        }
+
+        .min-screen .screen-box .screen .content {
+            min-height: 80vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+            flex-flow: column;
+            background: rgba(72, 72, 72, 0.7);
+        }
+
+        .min-screen .screen-box .screen .content h1 {
+            font-size: 3rem;
+            color: #fff;
+            animation: anymat 0.4s linear 0.4s backwards;
+
+        }
+
+        .min-screen .screen-box .screen .content h3 {
+            font-size: 1rem;
+            color: #fff;
+            padding: 1rem;
+            line-height: 1.5rem;
+            animation: anymat 0.4s linear 0.6s backwards;
+        }
+
+        .min-screen .screen-box .screen .content .btn {
+            display: inline-block;
+            padding: 0.5rem 4rem;
+            background: none;
+            border: 0.2rem solid #333;
+            color: rgb(224, 224, 224);
+            font-size: 1rem;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: 0.2s linear;
+            animation: anymat 0.4s linear 0.2s backwards;
+        }
+
+        @keyframes anymat {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translateY(-50px);
+            }
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: translateY(-10px);
+            }
+        }
+
+
+        .blink {
+            animation: blink 2s infinite;
+        }
+
+
+        /*cards section css*/
+
+        .startmain {
+            color: #555;
+            text-align: center;
+            font-family: 'Roboto Mono';
+            padding: 1em;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.2em;
+        }
+
+        .flip {
+            position: relative;
+            cursor: pointer;
+
+            >.front,
+            >.back {
+                display: block;
+                transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
+                transition-duration: .5s;
+                transition-property: transform, opacity;
+            }
+
+            >.front {
+                transform: rotateY(0deg);
+            }
+
+            >.back {
+                position: absolute;
+                opacity: 0;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                transform: rotateY(-180deg);
+            }
+
+            &:hover {
+                >.front {
+                    transform: rotateY(180deg);
+                }
+
+                >.back {
+                    opacity: 1;
+                    transform: rotateY(0deg);
+                }
+            }
+
+            &.flip-vertical {
+                >.back {
+                    transform: rotateX(-180deg);
+                }
+
+                &:hover {
+                    >.front {
+                        transform: rotateX(180deg);
+                    }
+
+                    >.back {
+                        transform: rotateX(0deg);
+                    }
+                }
+            }
+        }
+
+        .flip {
+            position: relative;
+            display: inline-block;
+            margin-right: 2px;
+            margin-bottom: 1em;
+            width: 400px;
+
+            >.front,
+            >.back {
+                display: block;
+                color: white;
+                width: inherit;
+                background-size: cover !important;
+                background-position: center !important;
+                height: 220px;
+                padding: 1em 2em;
+                background: #313131;
+                border-radius: 10px;
+
+                p {
+                    font-weight: bold;
+                    line-height: 160%;
+                    color: #fff;
+                }
+            }
+        }
+
+        .text-shadow {
+            text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04), 3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04), 0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04), 7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04), 9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04), 11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04), 13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04), 0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04), 17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04), 19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+            margin-top: 9.3rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+
+
+    <!-- Topbar Start -->
+        {% include 'header.html'%}
+
+        <!--NAVBAR-->
+
+        <!-- center section -->
+
+        <div class="min-screen" data-aos="fade-up">
+            <div class="screen-box active">
+                <div class="screen">
+                    <div class="content" data-aos="fade-up">
+                        <h1 style="margin-top: 10rem;">Tourist Destination Around Jalgaon</h1>
+                        <h3 style="text-align: center;font-size:19px;margin-left:8rem;margin-right:8rem">
+                            Jalgaon, an ideal hub, is just 1-2 hours away from several nearby tourist spots, making it a
+                            perfect base for exploration.
+                        </h3>
+                        <!-- <a href="#" class="btn">lear1 more</a> -->
+                        <i class="fa-solid fa-angle-down blink" style="font-size: 2.5rem;color:rgb(6 105 255);"></i>
+                    </div>
+                    <video src="{% static 'img/tour1.mp4' %}" muted autoplay loop></video>
+                </div>
+            </div>
+        </div>
+
+        <!-- center section end -->
+
+        <!-- toursit place sections start -->
+        <div class="startmain">
+            <h1 style="color: #090909;margin-top:2rem">Tourist Places</h1>
+            <div class="flip" data-aos="fade-down-right">
+                <div class="front" style="background-image: url({% static 'img/aj.jpg' %})">
+                    <h1 class="text-shadow">Ajanta Caves</hi>
+                </div>
+                <div class="back">
+                    <h2 style="color: #fff;">Ajanta Caves</h2>
+                    <p>With the Ellora Caves, Ajanta is one of the major tourist attractions of Maharashtra. It is about
+                        59 kilometres (37 miles) from the city of Jalgaon, Maharashtra, India, 104 kilometres (65 miles)
+                        from the city of Aurangabad, and 350 kilometres (220 miles) east-northeast of Mumbai</p>
+                </div>
+            </div>
+            <div class="flip" data-aos="fade-down-right">
+                <div class="front" style="background-image: url({% static 'img/ellora.webp' %})">
+                    <h1 class="text-shadow">Ellora</hi>
+                </div>
+                <div class="back">
+                    <h2 style="color:#fff">Ellora</h2>
+                    <p>Padmalaya is a village in Erandol taluka of Jalgaon district, Maharashtra, India. It lies 10 km
+                        from Erandol and 31.5 km from the district headquarters of Jalgaon. The village is known for the
+                        Ganesha temple. A pond is located near this temple</p>
+                </div>
+            </div>
+            <div class="flip" data-aos="fade-down-right">
+                <div class="front" style="background-image: url({% static 'img/unapdev.webp' %})">
+                    <h1 class="text-shadow">Unapdev</hi>
+                </div>
+                <div class="back">
+                    <h2 style="color: #fff;">Unapdev</h2>
+                    <p>Unapdev located in foothills of Satpuda hills range, Unapdev is one of holy remote place at a
+                        distance of 6 km (3.7 mi) from Adavad village in Chopda taluka of Jalgaon District in
+                        Maharashtra state of India.</p>
+                </div>
+            </div>
+            <div class="flip" data-aos="fade-down-left">
+                <div class="front" style="background-image: url({% static 'img/om.jpg' %})">
+                    <h1 class="text-shadow">Omkareshwar</hi>
+                </div>
+                <div class="back">
+                    <h2 style="color: #fff;">Omkareshwar</h2>
+                    <p>It is situated in the Mandhata city (also known as Omkareshwar) in Khandwa district of Madhya
+                        Pradesh state in India. It is about 16 km from Barwaha in Madhya Pradesh</p>
+                </div>
+            </div>
+            <div class="flip" data-aos="fade-down-left">
+                <div class="front" style="background-image: url({% static 'img/manuDevi.jpg' %})">
+                    <h1 class="text-shadow">Manu devi</hi>
+                </div>
+                <div class="back">
+                    <h2 style="color: #fff;">Manu devi</h2>
+                    <p>Manudevi Temple is located near Adgaon village in Yawal Taluka in the scenic natural surroundings
+                        of the Satpura Range.</p>
+                </div>
+            </div>
+            <div class="flip" data-aos="fade-down-left">
+                <div class="front" style="background-image: url({% static 'img/padma.jpg' %})">
+                    <h1 class="text-shadow">Padmalaya</hi>
+                </div>
+                <div class="back">
+                    <h2 style="color: white;">Padmalaya</h2>
+                    <p>Padmalaya is a village in Erandol taluka of Jalgaon district, Maharashtra, India. It lies 10 km
+                        from Erandol and 31.5 km from the district headquarters of Jalgaon. The village is known for the
+                        Ganesha temple. A pond is located near this temple.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tourist2" style="margin-top:2rem; margin-bottom:1.5rem;">
+            <img src="{% static 'img/Tourist2.jpg' %}" data-aos="fade-right"> 
+            <img src="{% static 'img/Tourist1.jpg' %}" data-aos="fade-left">
+        </div>
+
+<!-- toursit place sections end -->
+        <!-- Footer Start -->
+       {% include 'footer.html'%}
+        <!-- Footer End -->
+
+
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+        <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+        <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+        <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'  %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+        <script src="{% static 'js/main.js' %}"></script>
+
+        <!---
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+ integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+ crossorigin="anonymous"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+            crossorigin="anonymous"></script>
+
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 2000,
+            })
+        </script>
+    </div>
+</body>
+
+</html>

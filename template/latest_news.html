@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- CSS -->
+    <style>
+        /* Google Fonts - Poppins */
+
+        .slidermain {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #efefef;
+        }
+
+        .container {
+            max-width: 1120px;
+            width: 100%;
+            padding: 40px 0;
+        }
+
+        .slide-container {
+            margin: 0 30px;
+            overflow: hidden;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+        }
+
+        .card .image-box {
+            height: 200px;
+            cursor: pointer;
+        }
+
+        .card .image-box img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .card .profile-details {
+            display: flex;
+            align-items: center;
+            column-gap: 12px;
+            padding: 15px;
+        }
+
+        .card .profile-details img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        .profile-details .name {
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .profile-details .job {
+            font-size: 12px;
+            font-weight: 500;
+            color: #4d4d4d;
+            text-align: center;
+        }
+
+        .swiper-navBtn {
+            color: #000;
+            height: 40px;
+            width: 40px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .swiper-navBtn::before,
+        .swiper-navBtn::after {
+            font-size: 18px;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: #000;
+        }
+
+        @media screen and (max-width: 768px) {
+            .swiper-navBtn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-center fw-bold display-1 mb-5"><h1 style="margin-top: 18px;">Events & Exhibition</h1><h5 class="text-primary text" style="margin-bottom:-2.8rem;color:rgb(6 105 255);">Khandesh Central Mall Unveils Exciting Upgrades and Unmissable Offers! </h5></div>
+    <div class="slidermain" data-aos="flip-down">
+        <div class="container swiper">
+            <div class="slide-container">
+                <div class="card-wrapper swiper-wrapper">
+                    <div class="card swiper-slide">
+                        <div class="image-box">
+                            <img src="{% static 'img/ganesh_fest.png'%}" alt="" />
+                        </div>
+                        <div class="profile-details">
+                            <div class="name-job">
+                                <h3 class="name">Ganesh Festival</h3>
+                                <h4 class="job">19 September 23</h4>
+                                <h4 class="job">Ganesh Festival Celebrated by Khandesh Central</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-box">
+                            <img src="{% static 'img/artcompetion.jpg' %}" alt="" />
+                        </div>
+                        <div class="profile-details">
+                            <div class="name-job">
+                                <h3 class="name">Art Exhibition</h3>
+                                <h4 class="job">23 July - 1 Aug 23</h4>
+                                <h4 class="job">Dedicate space for exhibion showcasing the works of  artists.</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-box">
+                            <img src="{% static 'img/ruuning.png' %}" alt="" />
+                        </div>
+                        <div class="profile-details">
+                            <div class="name-job">
+                                <h3 class="name">Running Competition</h3>
+                                <h4 class="job">December 22</h4>
+                                <h4 class="job">It is hard to fail, but it is worse never to have tried to succeed.</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-box">
+                            <img src="{% static 'img/event5.jpg' %}" alt="" />
+                        </div>
+                        <div class="profile-details">
+                            <div class="name-job">
+                                <h3 class="name">Property Exhibition</h3>
+                                <h4 class="job">23 December 22</h4>
+                                <h4 class="job">It is hard to fail, but it is worse never to have tried to succeed.</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-box">
+                            <img src="{% static 'img/chrismus.webp' %}" alt="" />
+                        </div>
+                        <div class="profile-details">
+                            <div class="name-job">
+                                <h3 class="name">Christmas Party</h3>
+                                <h4 class="job">25 December 22</h4>
+                                <h4 class="job">It is hard to fail, but it is worse never to have tried to succeed.</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-box">
+                            <img src="{% static 'img/music.jpg' %}" alt="" />
+                        </div>
+                        <div class="profile-details">
+                            <div class="name-job">
+                                <h3 class="name">Magic and Music</h3>
+                                <h4 class="job">4th June - 0 June 23</h4>
+                                <h4 class="job">Every step is a story, every performance is a journey.</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-box">
+                            <img src="{% static 'img/artcompetion.jpg' %}" alt="" />
+                        </div>
+                        <div class="profile-details">
+                            <div class="name-job">
+                                <h3 class="name">Art Exhibition</h3>
+                                <h4 class="job">23 July - 1 Aug 23</h4>
+                                <h4 class="job">Dedicate space for exhibion showcasing the works of  artists.</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card swiper-slide">
+                        <div class="image-box">
+                            <img src="{% static 'img/ruuning.png' %}" alt="" />
+                        </div>
+                        <div class="profile-details">
+                            <div class="name-job">
+                                <h3 class="name">Running Competition</h3>
+                                <h4 class="job">December 22</h4>
+                                <h4 class="job">It is hard to fail, but it is worse never to have tried to succeed </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".slide-container", {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            sliderPerGroup: 4,
+            loop: true,
+            centerSlide: "true",
+            fade: "true",
+            grabCursor: "true",
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                dynamicBullets: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+
+            autoplay: {
+                delay: 4000, 
+                disableOnInteraction: false,
+            },
+
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                },
+                520: {
+                    slidesPerView: 2,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1000: {
+                    slidesPerView: 4,
+                },
+            },
+        });
+    </script>
+    <script>
+        AOS.init({
+            duration: 2000,
+          })
+    </script>
+</body>
+
+</html>
