@@ -1,4 +1,5 @@
 {% load static %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     a {
         color: #fff;
@@ -217,7 +218,7 @@
     .footer-social-link.instagram {
         height: 34px;
         left: 172px;
-        top: 7px;
+        top: 13px;
         width: 45px;
     }
 
@@ -247,6 +248,9 @@
         color: #fff;
         text-decoration: none;
     }
+    .footer-copyright-link:hover{
+        color: #fff;
+    }
 
 
     #logo-content {
@@ -266,6 +270,12 @@
     }
 
    /* Media Queries */
+
+   @media (max-width:300px){
+    .footer-logo-link img{
+        margin-left: 1rem;
+    }
+   }
 @media (max-width: 479px) {
     .footer-content {
         padding: 40px 15px 1050px;
@@ -283,7 +293,7 @@
         margin-top: 8.2rem;
     }
     .footer-social-link.instagram{
-        margin-top: 9rem;
+        margin-top: 8.5rem;
     }
 
     .footer-copyright{
@@ -302,11 +312,13 @@
         margin-left: -1px;
     }
     .footer-logo-link img{
-        margin-left: 4.9rem;
+        margin-left: 5.9rem;
     }
 }
 
 @media (min-width: 480px) and (max-width: 599px) {
+
+ 
     .footer-content {
         padding: 40px 15px 1050px;
     }
@@ -314,7 +326,11 @@
         margin-top: 22px;
      }
 }
-
+@media (max-width:1200px){
+    #side-content{
+        font-size: 1rem;
+       } 
+}
 @media (min-width: 600px) and (max-width: 800px) {
     .footer-content {
         padding: 40px 15px 1050px;
@@ -325,7 +341,7 @@
 }
 
 
-@media (min-width: 760px) {
+@media (min-width: 768px) {
     .footer-content {
         padding: 40px 15px 450px;
     }
@@ -409,7 +425,7 @@
                         d="M223.06,43.32c-.77-7.2,1.87-28.47-20-32.53C187.78,8,180.41,18,178.32,20.7s-5.63,10.1-4.07,16.7-.13,15.23-4.06,15.91-8.75-2.9-6.89-7S167.41,36,167.15,33a18.93,18.93,0,0,0-2.64-8.53c-3.44-5.5-8-11.19-19.12-11.19a21.64,21.64,0,0,0-18.31,9.18c-2.08,2.7-5.66,9.6-4.07,16.69s.64,14.32-6.11,13.9S108.35,46.5,112,36.54s-1.89-21.24-4-23.94S96.34,0,85.23,0,57.46,8.84,56.49,24.56s6.92,20.79,7,24.59c.07,2.75-6.43,4.16-12.92,2.38s-4-10.75-3.46-12.38c1.85-6.6-2-14-4.08-16.69a21.62,21.62,0,0,0-18.3-9.18C13.62,13.28,9.06,19,5.62,24.47A18.81,18.81,0,0,0,3,33a21.85,21.85,0,0,0,1.58,9.08,16.58,16.58,0,0,1,1.06,5A6.75,6.75,0,0,1,0,54H236C235.47,54,223.83,50.52,223.06,43.32Z">
                     </path>
                 </svg>
-                <a class="footer-social-link linkedin" href="#" target="_blank">
+                <a class="footer-social-link linkedin" href="{% url 'contact' %}"target="_blank">
                     <span class="hidden-link-text">Linkedin</span>
                     <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                         <path class="footer-social-icon-path"
@@ -417,7 +433,7 @@
                         </path>
                     </svg>
                 </a>
-                <a class="footer-social-link twitter" href="#" target="_blank">
+                <a class="footer-social-link twitter" href="{% url 'contact' %}"target="_blank">
                     <span class="hidden-link-text">Twitter</span>
                     <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
                         <path class="footer-social-icon-path"
@@ -425,7 +441,7 @@
                         </path>
                     </svg>
                 </a>
-                <a class="footer-social-link youtube" href="#" target="_blank">
+                <a class="footer-social-link youtube" href="https://www.youtube.com/@CrescentEntertainmentTou-su3wz" target="_blank">
                     <span class="hidden-link-text">Youtube</span>
                     <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                         <path class="footer-social-icon-path"
@@ -433,15 +449,17 @@
                         </path>
                     </svg>
                 </a>
-                <a class="footer-social-link instagram" href="#" target="_blank">
+                <a class="footer-social-link instagram" href="https://www.instagram.com/cresententertainmenttourism/" target="_blank">
                     <span class="hidden-link-text">Instagram</span>
                     <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
                         <path class="footer-social-icon-path"
-                            d="M 16 4 C 9.371094 4 4 9.371094 4 16 C 4 21.300781 7.4375 25.800781 12.207031 27.386719 C 12.808594 27.496094 13.027344 27.128906 13.027344 26.808594 C 13.027344 26.523438 13.015625 25.769531 13.011719 24.769531 C 9.671875 25.492188 8.96875 23.160156 8.96875 23.160156 C 8.421875 21.773438 7.636719 21.402344 7.636719 21.402344 C 6.546875 20.660156 7.71875 20.675781 7.71875 20.675781 C 8.921875 20.761719 9.554688 21.910156 9.554688 21.910156 C 10.625 23.746094 12.363281 23.214844 13.046875 22.910156 C 13.15625 22.132813 13.46875 21.605469 13.808594 21.304688 C 11.144531 21.003906 8.34375 19.972656 8.34375 15.375 C 8.34375 14.0625 8.8125 12.992188 9.578125 12.152344 C 9.457031 11.851563 9.042969 10.628906 9.695313 8.976563 C 9.695313 8.976563 10.703125 8.65625 12.996094 10.207031 C 13.953125 9.941406 14.980469 9.808594 16 9.804688 C 17.019531 9.808594 18.046875 9.941406 19.003906 10.207031 C 21.296875 8.65625 22.300781 8.976563 22.300781 8.976563 C 22.957031 10.628906 22.546875 11.851563 22.421875 12.152344 C 23.191406 12.992188 23.652344 14.0625 23.652344 15.375 C 23.652344 19.984375 20.847656 20.996094 18.175781 21.296875 C 18.605469 21.664063 18.988281 22.398438 18.988281 23.515625 C 18.988281 25.121094 18.976563 26.414063 18.976563 26.808594 C 18.976563 27.128906 19.191406 27.503906 19.800781 27.386719 C 24.566406 25.796875 28 21.300781 28 16 C 28 9.371094 22.628906 4 16 4 Z ">
+                        d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z">
                         </path>
                     </svg>
-                </a>                
 
+                </a>
+                                
+                                              
             </div>
         </div>
         <div class="footer-copyright">

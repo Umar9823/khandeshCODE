@@ -1,6 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+
 
 
 
@@ -40,15 +45,26 @@ def tourism(request):
 def gallery(request):
     return render(request,'gallery.html')
 def contact(request):
-    if request.method =='POST':
-        name=request.POST.get('name')
-        email=request.POST.get('email')
-        subject=request.POST.get('subject') 
-        message=request.POST.get('message') 
-        print(name,email,subject,message) 
-        obj=contact(name=name,email=email,subject=subject,message=message)
-        obj.save()
-    return render (request,'contact.html')
+    if request.method == 'POST':
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        number = request.POST.get('number', '')
+        subject = request.POST.get('subject', '')
+        message = request.POST.get('message', '')
+        
+        # Compose email message
+        send_mail(
+            subject,
+            f'Name: {name}\n\nEmail: {email}\n\nMobile_No: {number}\n\nSubject: {subject}\n\nMessage: {message}',
+            'profmufasa@gmail.com',
+            ['umar.shaikh.iqra@gmail.com'],
+            fail_silently=False,
+        )
+        messages.success(request, 'Your message has been sent successfully!')
+        return redirect('contact') 
+        
+
+    return render(request, 'contact.html')
     
     
 def quote(request):
@@ -81,7 +97,7 @@ def contact1 (request):
         From:{}
         '''.format(data['message'], data['email'])
         send_mail(data['subject'], message,'',['umar.shaikh.iqra@gmail.com'])
-    return render(request,'contact1.html',{})  
+    return render(request,'contact.html',{})  
 
 def home(request):
     return render(request,'home.html') 
@@ -93,8 +109,9 @@ def header(request):
     return render(request,'header.html')  
 
 def footer(request):
-    return render(request,'footer.html')    
-        
+    return render(request,'footer.html')  
+
+
            
         
 
